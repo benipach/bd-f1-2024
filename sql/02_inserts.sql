@@ -1,0 +1,263 @@
+USE f1_2024;
+
+INSERT INTO paises (pais_id, nombre) VALUES
+(1, 'Bahréin'),
+(2, 'Arabia Saudita'),
+(3, 'Australia'),
+(4, 'Japón'),
+(5, 'China'),
+(6, 'Estados Unidos'),
+(7, 'Italia'),
+(8, 'Mónaco'),
+(9, 'Canadá'),
+(10, 'España'),
+(11, 'Austria'),
+(12, 'Reino Unido'),
+(13, 'Hungría'),
+(14, 'Bélgica'),
+(15, 'Países Bajos'),
+(16, 'Azerbaiyán'),
+(17, 'Singapur'),
+(18, 'México'),
+(19, 'Brasil'),
+(20, 'Qatar'),
+(21, 'Emiratos Árabes Unidos'),
+(22, 'Francia'),
+(23, 'Argentina'),
+(24, 'Nueva Zelanda'),
+(25, 'Alemania'),
+(26, 'Dinamarca'),
+(27, 'Finlandia'),
+(28, 'Suiza');
+
+
+
+-- Del 1 al 24: ciudades donde están los circuitos, en el orden del calendario.
+-- Del 25 al 33: sedes de los equipos. Del 34 en adelante: lugares de nacimiento de los pilotos.
+
+INSERT INTO ciudades (ciudad_id, nombre, anio_primer_gp, pais_id) VALUES
+(1, 'Sakhir', 2004, 1),
+(2, 'Yeda', 2021, 2),
+(3, 'Melbourne', 1996, 3),
+(4, 'Suzuka', 1987, 4),
+(5, 'Shanghái', 2004, 5),
+(6, 'Miami', 2022, 6),
+(7, 'Imola', 1980, 7),
+(8, 'Montecarlo', 1950, 8),
+(9, 'Montreal', 1978, 9),
+(10, 'Montmeló', 1991, 10),
+(11, 'Spielberg', 1970, 11),
+(12, 'Silverstone', 1950, 12),
+(13, 'Mogyoród', 1986, 13),
+(14, 'Stavelot', 1950, 14),
+(15, 'Zandvoort', 1952, 15),
+(16, 'Monza', 1950, 7),
+(17, 'Bakú', 2016, 16),
+(18, 'Singapur', 2008, 17),
+(19, 'Austin', 2012, 6),
+(20, 'Ciudad de México', 1963, 18),
+(21, 'São Paulo', 1973, 19),
+(22, 'Las Vegas', 1981, 6),
+(23, 'Lusail', 2021, 20),
+(24, 'Abu Dabi', 2009, 21),
+(25, 'Woking', NULL, 12),
+(26, 'Maranello', NULL, 7),
+(27, 'Milton Keynes', NULL, 12),
+(28, 'Brackley', NULL, 12),
+(29, 'Enstone', NULL, 12),
+(30, 'Kannapolis', NULL, 6),
+(31, 'Faenza', NULL, 7),
+(32, 'Grove', NULL, 12),
+(33, 'Hinwil', NULL, 28),
+(34, 'Hasselt', NULL, 14),
+(35, 'Guadalajara', NULL, 18),
+(36, 'Stevenage', NULL, 12),
+(37, 'King''s Lynn', NULL, 12),
+(38, 'Madrid', NULL, 10),
+(39, 'Bristol', NULL, 12),
+(40, 'Oviedo', NULL, 10),
+(41, 'Ruan', 1952, 22),
+(42, 'Évreux', NULL, 22),
+(43, 'Gold Coast', NULL, 3),
+(44, 'Londres', NULL, 12),
+(45, 'Fort Lauderdale', NULL, 6),
+(46, 'Pilar', NULL, 23),
+(47, 'Sagamihara', NULL, 4),
+(48, 'Perth', NULL, 3),
+(49, 'Hastings', NULL, 24),
+(50, 'Emmerich am Rhein', NULL, 25),
+(51, 'Roskilde', NULL, 26),
+(52, 'Chelmsford', NULL, 12),
+(53, 'Nastola', NULL, 27);
+
+
+
+INSERT INTO equipos (equipo_id, nombre, anio_fundacion, cantidad_titulos, ciudad_id) VALUES
+(1, 'McLaren', 1963, 9, 25),
+(2, 'Ferrari', 1929, 16, 26),
+(3, 'Red Bull', 2005, 6, 27),
+(4, 'Mercedes-AMG', 2010, 8, 28),
+(5, 'Aston Martin', 2021, 0, 12),
+(6, 'Alpine', 2021, 0, 29),
+(7, 'Haas', 2014, 0, 30),
+(8, 'RB', 2024, 0, 31),
+(9, 'Williams', 1977, 9, 32),
+(10, 'Kick Sauber', 1970, 0, 33);
+
+
+
+-- Los 24 pilotos que corrieron en 2024, incluidos los reemplazos de mitad de temporada.
+-- Oliver Bearman figura en Haas, donde corrió dos carreras con el número 50
+-- (en Arabia Saudita reemplazó a Sainz en Ferrari con el 38).
+
+INSERT INTO pilotos (numero, nombre, apellido, fecha_nacimiento, equipo_id, ciudad_id) VALUES
+(4, 'Lando', 'Norris', '1999-11-13', 1, 39),
+(81, 'Oscar', 'Piastri', '2001-04-06', 1, 3),
+(16, 'Charles', 'Leclerc', '1997-10-16', 2, 8),
+(55, 'Carlos', 'Sainz', '1994-09-01', 2, 38),
+(1, 'Max', 'Verstappen', '1997-09-30', 3, 34),
+(11, 'Sergio', 'Pérez', '1990-01-26', 3, 35),
+(63, 'George', 'Russell', '1998-02-15', 4, 37),
+(44, 'Lewis', 'Hamilton', '1985-01-07', 4, 36),
+(14, 'Fernando', 'Alonso', '1981-07-29', 5, 40),
+(18, 'Lance', 'Stroll', '1998-10-29', 5, 9),
+(10, 'Pierre', 'Gasly', '1996-02-07', 6, 41),
+(31, 'Esteban', 'Ocon', '1996-09-17', 6, 42),
+(61, 'Jack', 'Doohan', '2003-01-20', 6, 43),
+(27, 'Nico', 'Hülkenberg', '1987-08-19', 7, 50),
+(20, 'Kevin', 'Magnussen', '1992-10-05', 7, 51),
+(50, 'Oliver', 'Bearman', '2005-05-08', 7, 52),
+(22, 'Yuki', 'Tsunoda', '2000-05-11', 8, 47),
+(3, 'Daniel', 'Ricciardo', '1989-07-01', 8, 48),
+(30, 'Liam', 'Lawson', '2002-02-11', 8, 49),
+(23, 'Alexander', 'Albon', '1996-03-23', 9, 44),
+(2, 'Logan', 'Sargeant', '2000-12-31', 9, 45),
+(43, 'Franco', 'Colapinto', '2003-05-27', 9, 46),
+(77, 'Valtteri', 'Bottas', '1989-08-28', 10, 53),
+(24, 'Guanyu', 'Zhou', '1999-05-30', 10, 5);
+
+
+
+INSERT INTO circuitos (circuito_id, nombre, longitud_metros, ciudad_id) VALUES
+(1, 'Circuito Internacional de Bahréin', 5412, 1),
+(2, 'Circuito de Yeda', 6174, 2),
+(3, 'Circuito de Albert Park', 5278, 3),
+(4, 'Circuito de Suzuka', 5807, 4),
+(5, 'Circuito Internacional de Shanghái', 5451, 5),
+(6, 'Autódromo de Miami', 5412, 6),
+(7, 'Autódromo Enzo e Dino Ferrari', 4909, 7),
+(8, 'Circuito de Mónaco', 3337, 8),
+(9, 'Circuito Gilles Villeneuve', 4361, 9),
+(10, 'Circuito de Barcelona-Cataluña', 4657, 10),
+(11, 'Red Bull Ring', 4318, 11),
+(12, 'Silverstone Circuit', 5891, 12),
+(13, 'Hungaroring', 4381, 13),
+(14, 'Circuit de Spa-Francorchamps', 7004, 14),
+(15, 'Circuito de Zandvoort', 4259, 15),
+(16, 'Autodromo Nazionale di Monza', 5793, 16),
+(17, 'Circuito Callejero de Bakú', 6003, 17),
+(18, 'Marina Bay Street Circuit', 4940, 18),
+(19, 'Circuit of the Americas', 5513, 19),
+(20, 'Autódromo Hermanos Rodríguez', 4304, 20),
+(21, 'Autódromo José Carlos Pace', 4309, 21),
+(22, 'Las Vegas Strip Circuit', 6201, 22),
+(23, 'Circuito Internacional de Losail', 5419, 23),
+(24, 'Yas Marina Circuit', 5281, 24);
+
+
+
+INSERT INTO grandes_premios (gran_premio_id, nombre, fecha, circuito_id) VALUES
+(1, 'Gran Premio de Bahréin', '2024-03-02', 1),
+(2, 'Gran Premio de Arabia Saudita', '2024-03-09', 2),
+(3, 'Gran Premio de Australia', '2024-03-24', 3),
+(4, 'Gran Premio de Japón', '2024-04-07', 4),
+(5, 'Gran Premio de China', '2024-04-21', 5),
+(6, 'Gran Premio de Miami', '2024-05-05', 6),
+(7, 'Gran Premio de Emilia-Romaña', '2024-05-19', 7),
+(8, 'Gran Premio de Mónaco', '2024-05-26', 8),
+(9, 'Gran Premio de Canadá', '2024-06-09', 9),
+(10, 'Gran Premio de España', '2024-06-23', 10),
+(11, 'Gran Premio de Austria', '2024-06-30', 11),
+(12, 'Gran Premio de Gran Bretaña', '2024-07-07', 12),
+(13, 'Gran Premio de Hungría', '2024-07-21', 13),
+(14, 'Gran Premio de Bélgica', '2024-07-28', 14),
+(15, 'Gran Premio de los Países Bajos', '2024-08-25', 15),
+(16, 'Gran Premio de Italia', '2024-09-01', 16),
+(17, 'Gran Premio de Azerbaiyán', '2024-09-15', 17),
+(18, 'Gran Premio de Singapur', '2024-09-22', 18),
+(19, 'Gran Premio de Estados Unidos', '2024-10-20', 19),
+(20, 'Gran Premio de México', '2024-10-27', 20),
+(21, 'Gran Premio de São Paulo', '2024-11-03', 21),
+(22, 'Gran Premio de Las Vegas', '2024-11-23', 22),
+(23, 'Gran Premio de Qatar', '2024-12-01', 23),
+(24, 'Gran Premio de Abu Dabi', '2024-12-08', 24);
+
+
+
+INSERT INTO resultados (resultado_id, gran_premio_id, numero_piloto_ganador, tiempo, cantidad_vueltas) VALUES
+(1, 1, 1, '01:31:44.742', 57),
+(2, 2, 1, '01:20:43.273', 50),
+(3, 3, 55, '01:20:26.843', 58),
+(4, 4, 1, '01:54:23.566', 53),
+(5, 5, 1, '01:40:52.554', 56),
+(6, 6, 4, '01:30:49.876', 57),
+(7, 7, 1, '01:25:25.252', 63),
+(8, 8, 16, '02:23:15.554', 78),
+(9, 9, 1, '01:45:47.927', 70),
+(10, 10, 1, '01:28:20.227', 66),
+(11, 11, 63, '01:24:22.798', 71),
+(12, 12, 44, '01:22:27.059', 52),
+(13, 13, 81, '01:38:01.989', 70),
+(14, 14, 44, '01:19:57.566', 44),
+(15, 15, 4, '01:30:45.519', 72),
+(16, 16, 16, '01:14:40.727', 53),
+(17, 17, 81, '01:32:58.007', 51),
+(18, 18, 4, '01:40:52.571', 62),
+(19, 19, 16, '01:35:09.639', 56),
+(20, 20, 55, '01:40:55.800', 71),
+(21, 21, 1, '02:06:54.430', 69),
+(22, 22, 63, '01:22:05.969', 50),
+(23, 23, 1, '01:31:05.323', 57),
+(24, 24, 4, '01:26:33.291', 58);
+
+
+
+INSERT INTO campeonato_pilotos (campeonato_id, piloto_numero, puntos, posicion) VALUES
+(1, 1, 437, 1),
+(2, 4, 374, 2),
+(3, 16, 356, 3),
+(4, 81, 292, 4),
+(5, 55, 290, 5),
+(6, 63, 245, 6),
+(7, 44, 223, 7),
+(8, 11, 152, 8),
+(9, 14, 70, 9),
+(10, 10, 42, 10),
+(11, 27, 41, 11),
+(12, 22, 30, 12),
+(13, 18, 24, 13),
+(14, 31, 23, 14),
+(15, 20, 16, 15),
+(16, 23, 12, 16),
+(17, 3, 12, 17),
+(18, 50, 7, 18),
+(19, 43, 5, 19),
+(20, 24, 4, 20),
+(21, 30, 4, 21),
+(22, 77, 0, 22),
+(23, 2, 0, 23),
+(24, 61, 0, 24);
+
+
+
+INSERT INTO campeonato_constructores (campeonato_id, equipo_id, puntos, posicion) VALUES
+(1, 1, 666, 1),
+(2, 2, 652, 2),
+(3, 3, 589, 3),
+(4, 4, 468, 4),
+(5, 5, 94, 5),
+(6, 6, 65, 6),
+(7, 7, 58, 7),
+(8, 8, 46, 8),
+(9, 9, 17, 9),
+(10, 10, 4, 10);
